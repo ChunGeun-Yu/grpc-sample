@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_outer_classname = "SampleProto";
+option java_package = "grpc.sample";
+
+package examples.test;
+
+message MySampleRequest {
+  string id = 1;
+  string message = 2;
+}
+
+message MySampleResponse {
+  string message = 1;
+  int64 timestamp = 2;
+}
+
+service MySampleService {
+  rpc sampleCall1 (MySampleRequest) returns (MySampleResponse) {}
+  rpc sampleCall2 (MySampleRequest) returns (MySampleResponse) {}
+}
